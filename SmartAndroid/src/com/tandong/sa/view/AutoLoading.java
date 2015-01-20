@@ -16,7 +16,9 @@ import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 /**
- * 2014-12-11
+ * 
+ * @author Mehdi Sakout
+ * @author Danny Tsegai
  * 
  */
 public class AutoLoading {
