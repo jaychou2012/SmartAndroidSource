@@ -1,0 +1,42 @@
+package com.smartandroid.sa.zip.transform;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+
+import com.smartandroid.sa.zip.ByteSource;
+import com.smartandroid.sa.zip.commons.IOUtils;
+
+public abstract class StringZipEntryTransformer implements ZipEntryTransformer {
+
+	/**
+	 * The encoding to use, null means platform default.
+	 */
+	private final String encoding;
+
+	public StringZipEntryTransformer() {
+		this(null);
+	}
+
+	public StringZipEntryTransformer(String encoding) {
+		this.encoding = encoding;
+	}
+
+	/**
+	 * Transforms the given String into a new one.
+	 */
+	protected abstract String transform(ZipEntry zipEntry, String input)
+			throws IOException;
+
+	public void transform(InputStream in, ZipEntry zipEntry, ZipOutputStream out)
+			throws IOException {
+		String data = IOUtils.toString(in, encoding);
+		data = transform(zipEntry, data);
+		byte[] bytes = encoding == null ? data.getBytes() : data
+				.getBytes(encoding);
+		ByteSource source = new ByteSource(zipEntry.getName(), bytes);
+		ZipEntrySourceZipEntryTransformer.addEntry(source, out);
+	}
+
+}

@@ -1,0 +1,31 @@
+package com.smartandroid.sa.floatextview;
+
+import java.util.ArrayList;
+
+import android.graphics.Paint;
+import android.text.TextPaint;
+
+/**
+ * Created by Dean on 24/06/2014.
+ */
+public class PaintHelper {
+	private ArrayList<TextPaint> mPaintHeap = new ArrayList<TextPaint>();
+
+	public TextPaint getPaintFromHeap() {
+		if (mPaintHeap.size() > 0) {
+			return mPaintHeap.remove(0);
+		} else {
+			return new TextPaint(Paint.ANTI_ALIAS_FLAG);
+		}
+	}
+
+	public void setColor(int color) {
+		for (TextPaint paint : mPaintHeap) {
+			paint.setColor(color);
+		}
+	}
+
+	public void recyclePaint(TextPaint paint) {
+		mPaintHeap.add(paint);
+	}
+}

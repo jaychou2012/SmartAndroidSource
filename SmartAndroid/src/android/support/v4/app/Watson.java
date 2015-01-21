@@ -6,13 +6,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 
-import com.tandong.sa.sherlock.ActionBarSherlock;
-import com.tandong.sa.sherlock.ActionBarSherlock.OnCreatePanelMenuListener;
-import com.tandong.sa.sherlock.ActionBarSherlock.OnMenuItemSelectedListener;
-import com.tandong.sa.sherlock.ActionBarSherlock.OnPreparePanelListener;
-import com.tandong.sa.sherlock.view.Menu;
-import com.tandong.sa.sherlock.view.MenuInflater;
-import com.tandong.sa.sherlock.view.MenuItem;
+import com.smartandroid.sa.sherlock.ActionBarSherlock;
+import com.smartandroid.sa.sherlock.ActionBarSherlock.OnCreatePanelMenuListener;
+import com.smartandroid.sa.sherlock.ActionBarSherlock.OnMenuItemSelectedListener;
+import com.smartandroid.sa.sherlock.ActionBarSherlock.OnPreparePanelListener;
+import com.smartandroid.sa.sherlock.view.Menu;
+import com.smartandroid.sa.sherlock.view.MenuInflater;
+import com.smartandroid.sa.sherlock.view.MenuItem;
 
 /** I'm in ur package. Stealing ur variables. */
 public abstract class Watson extends FragmentActivity implements
